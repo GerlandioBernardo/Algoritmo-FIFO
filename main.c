@@ -34,10 +34,10 @@ int frames){
            falhas++;
 
             if (proximo < frames){
-            proximo = proximo + 1;
+                proximo = proximo + 1;
             }
             if (proximo >= frames){
-            proximo = 0;
+                proximo = 0;
             }
         }
 
@@ -56,15 +56,34 @@ void imprimir(int estadoFinal[], int frames, int totalFalhas){
     }
     printf("]\n");
     printf("Total de falhas de página: %d ", totalFalhas);
+    printf("\n");
 
     
 
 
 }
 int main(){
-    int sequenciaDePaginas[] = {9, 3, 4, 2, 5, 6, 4, 9, 7, 1, 3};
-    int frames = 4;
+    /*
+    Ex1:  1, 3, 0, 3, 5, 6, 3, 1, 6, 1, 2 frames = 3;
+
+    Ex2 : 5, 6, 7, 8, 5, 6, 8, 9, 7, 6    frames = 4;
+
+    Ex3:  0, 2, 1, 6, 4, 0, 1, 0, 2, 1, 4   frames = 3;
+
+    Ex4:  9, 3, 4, 2, 5, 6, 4, 9, 7, 1, 3    frames = 4;
+
+    Ex5:  0, 2, 1, 6, 4, 0, 1, 0, 2, 1, 4   frames = 3;
+ 
+    Ex6:  8, 5, 7, 5, 4, 6, 8, 6, 1, 4, 8, 7   frames = 2;
+    */
+    int sequenciaDePaginas[] = {8, 5, 7, 5, 4, 6, 8, 6, 1, 4, 8, 7};
+    int frames;
+    printf("Informe o numero de molduras(frames): ");
+    scanf("%d", &frames);
     int estadoFinal[frames];
+    for (int i = 0; i < frames; i++) {
+        estadoFinal[i] = -1;
+    }
     int totalFalhas = 0;
     int tamanho = sizeof(sequenciaDePaginas) / sizeof(sequenciaDePaginas[0]);
     int total1 =  adicionarArrayVazio(sequenciaDePaginas, estadoFinal, frames);
